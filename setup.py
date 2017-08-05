@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup (
-    name="CurrencyConversionCli",
+    name="ExchangeRates",
     version='0.1',
     py_modeules=['exchange'],
     install_requires=[
