@@ -1,6 +1,4 @@
-# currency-convert-cli
-
-## **`exch`**
+# `exch`
 
 A commandline application built using python to see foreign exchange rates and currency conversion.
 
