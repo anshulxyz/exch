@@ -10,22 +10,24 @@ It parses exchange rates from the following services:
 ```
 $ git clone https://github.com/anshulc95/currency-convert-cli.git
 $ cd currency-convert-cli
-$ pip install --editable .
+$ pip3 install --editable . -r requirements.txt
 ```
 
 ## Usage:
 
 ```
 $ exch -v 99 -f USD -t INR
-6345.801
+99.0 USD = 6352.83 INR
+```
+```
 $ exch --value 100 --curr_from EUR --curr_to CNY
-793.71
+100.0 EUR = 784.14 CNY
 ```
 Default value for currency exchange is 1.
 
 ```
 $ exch -f USD -t PHP
-50.379
+1.0 USD = 51.027 PHP
 ```
 
 | Short | Long | Description | Example |

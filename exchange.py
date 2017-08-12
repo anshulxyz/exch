@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-""""A commandline application built using python to see currency exchange rates."""
+""""A CLI application built using python to see currency exchange rates."""
 
 import urllib.parse
 import requests
@@ -24,7 +24,9 @@ def cli(curr_from, curr_to, value: float):
 
     try:
         json_data = requests.get(url).json()
-        click.echo(json_data['rates'][curr_to] * value)
+        output_ = "{} {} = {} {}".format(
+            value, curr_from, json_data['rates'][curr_to] * value, curr_to)
+        click.echo(output_)
     except requests.exceptions.ConnectionError:
         click.echo("Internet connection error.")
     except KeyError:
