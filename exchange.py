@@ -8,9 +8,11 @@ import click
 
 @click.command()
 @click.option('--curr_from', '-f', default='USD', type=str,
-              help='This the currency you are trying to convert from.')
+              help='This the currency you are trying to convert from.',
+              show_default=True)
 @click.option('--curr_to', '-t', default='INR', type=str,
-              help='This is the currency you\'re converting to.')
+              help='This is the currency you\'re converting to.',
+              show_default=True)
 @click.option('--value', '-v', default=1, type=float,
               help='The amount you want to convert.')
 
