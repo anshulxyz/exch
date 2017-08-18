@@ -5,19 +5,19 @@
 from setuptools import setup
 
 setup(
-    name="ExchangeRates",
+    name="exch",
     version='0.1',
-    description='The funniest joke in the world',
+    description='A CLI app to see currency exchange rates.',
     url='https://github.com/anshulc95/exch',
     author='Anshul Chauhan',
     author_email='anshulchauhan@outlook.com',
     license='MIT',
-    py_modeules=['exchange'],
+    py_modeules=['exch'],
     install_requires=[
         'Click',
     ],
     entry_points='''
         [console_scripts]
-        exch=exchange:cli
+        exch=exch.core:cli
     ''',
 )
