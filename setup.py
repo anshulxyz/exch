@@ -14,7 +14,7 @@ setup(
     license='MIT',
     py_modeules=['exch'],
     install_requires=[
-        'Click',
+        'Click>=6.7',
     ],
     entry_points='''
         [console_scripts]
