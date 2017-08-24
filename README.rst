@@ -1,12 +1,15 @@
 ``exch``
 ========
 
-|Travis|
+.. image:: https://travis-ci.org/anshulc95/exch.svg?branch=master
+    :target: https://travis-ci.org/anshulc95/exch
 
 A commandline application built using python to see foreign exchange
 rates andcurrency conversion.
 
-It parses exchange rates from the following service(s): \* `fixer.io`_
+It parses exchange rates from the following service(s):
+
+   `fixer.io`_
 
 Prerequisites:
 --------------
@@ -44,22 +47,22 @@ Default amount for currency exchange is 1.
     $ exch -b USD -t PHP
     1.0 USD = 51.23 PHP
 
-+---------+-----------+-------------------------------------------+-----------------------+
-| Short   | Long      | Description                               | Example               |
-+=========+===========+===========================================+=======================+
-| -t      | –target   | Currency you are converting from.         | **``exch -t EUR``**   |
-+---------+-----------+-------------------------------------------+-----------------------+
-| -b      | –base     | Currency you're converting to.            | **``exch -b INR``**   |
-+---------+-----------+-------------------------------------------+-----------------------+
-| -a      | –amount   | The amount of base currency to convert.   | **``exch -a 99``**    |
-+---------+-----------+-------------------------------------------+-----------------------+
-| -h      | –help     | Displays the help text.                   | **``exch --help``**   |
-+---------+-----------+-------------------------------------------+-----------------------+
++---------+-----------+-------------------------------------------+-------------------+
+| Short   | Long      | Description                               | Example           |
++=========+===========+===========================================+===================+
+| -t      | –target   | Currency you are converting from.         |  ``exch -t EUR``  |
++---------+-----------+-------------------------------------------+-------------------+
+| -b      | –base     | Currency you're converting to.            |  ``exch -b INR``  |
++---------+-----------+-------------------------------------------+-------------------+
+| -a      | –amount   | The amount of base currency to convert.   |  ``exch -a 99``   |
++---------+-----------+-------------------------------------------+-------------------+
+| -h      | –help     | Displays the help text.                   |  ``exch --help``  |
++---------+-----------+-------------------------------------------+-------------------+
 
 Development setup
 -----------------
 
-Use ```virtualenv```_ for development in an isolated Python environment.
+Use ``virtualenv`` for development in an isolated Python environment.
 
 Install the testing dependecies:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +86,7 @@ To generate the test coverage:
 
 ::
 
-    (venv) $ pytest --cov=exch --cov-report=term 
+    (venv) $ pytest --cov=exch --cov-report=term
 
 Built With
 ----------
@@ -111,10 +114,6 @@ file for details
 .. _Python 3: https://www.python.org/download/releases/3.5.2/
 .. _pip3: https://pypi.python.org/pypi/pip
 .. _git: https://git-scm.com
-.. _``virtualenv``: https://virtualenv.pypa.io/en/stable/
 .. _Click: http://click.pocoo.org/6/
 .. _requests: http://docs.python-requests.org/en/master/
 .. _LICENSE.md: LICENSE.md
-
-.. |Travis| image:: https://img.shields.io/travis/anshulc95/exch.svg?style=flat-square
-   :target:
