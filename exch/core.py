@@ -10,27 +10,26 @@ A CLI application built using python to see currency exchange rates.
 """
 
 import click
+from exch.helpers import fixer
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-@click.command(context_settings=CONTEXT_SETTINGS)
-@click.option('--base', '-f', default='USD', type=str,
-              help='The currency you are trying to convert from.',
-              show_default=True)
-@click.option('--target', '-t', default='INR', type=str,
-              help='The currency you\'re converting to.',
-              show_default=True)
-@click.option('--value', '-v', default=1, type=float,
-              help='The amount you want to convert.',
-              show_default=True)
-def cli(base, target, value):
-    """
-    Get the latetst currency exchange rates.
+__version__ = '0.1'
 
-    It gets exchange rates from:
+@click.command(context_settings=CONTEXT_SETTINGS)
+@click.option('--base', '-b', default='USD', type=str, show_default=True,
+              help='Currency you are converting from.')
+@click.option('--target', '-t', default='INR', type=str, show_default=True,
+              help='Currency you\'re converting to.')
+@click.option('--amount', '-a', default=1.0, type=float, show_default=True,
+              help='Amount to convert.')
+def cli(base, target, amount):
+    """
+    Get the latetst currency exchange rates from:
 
     \b
         - fixer.io
     """
-    if base == target:
-        click.echo('1.00')
+
+    output = fixer(base, target, amount)
+    click.echo(output)
