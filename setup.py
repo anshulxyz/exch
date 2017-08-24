@@ -15,6 +15,7 @@ setup(
     py_modeules=['exch'],
     install_requires=[
         'Click>=6.7',
+        'requests==2.18.2',
     ],
     entry_points='''
         [console_scripts]
