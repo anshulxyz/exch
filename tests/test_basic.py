@@ -19,9 +19,7 @@ def test_fixer_gbp_to_php_value_99():
     """ fixer_io base: GBP, target: PHP, on date 2017-05-12, value: 99 """
     assert fixer('GBP', 'PHP', 99, date='2017-05-12') == round(63.942 * 99, 2)
 
-def test_fixer_inavlid_currency():
+def test_fixer_invalid_currency():
     """ when invalid currency is passed to fixer.io """
     assert fixer('USD', 'TTT', 1) == "Invalid currency"
     assert fixer('HHRR', 'TTT', 1) == "Invalid currency"
-
-# TODO: test for connection error
