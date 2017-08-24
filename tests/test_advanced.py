@@ -13,7 +13,7 @@ def test_click_same_currency_code():
     """ test terminal behaviour for same currency code """
     result = runner().invoke(cli, ['-t', 'USD', '-b', 'USD'])
     assert result.exit_code == 0
-    assert result.output == '1.0\n'
+    assert result.output == '1.0 USD = 1.0 USD\n'
 
 def test_invalid_base_currency_code():
     result = runner().invoke(cli, ['-t', 'USD', '-b', 'AAA'])
