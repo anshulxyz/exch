@@ -32,4 +32,7 @@ def cli(base, target, amount):
     """
 
     output = fixer(base, target, amount)
+    if isinstance(output, float):
+        output = "{} {} = {} {}".format(amount, base, output, target)
+
     click.echo(output)
