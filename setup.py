@@ -12,7 +12,7 @@ setup(
     author='Anshul Chauhan',
     author_email='anshulchauhan@outlook.com',
     license='MIT',
-    py_modeules=['exch'],
+    py_modules=['exch'],
     install_requires=[
         'Click>=6.7',
         'requests==2.18.2',
