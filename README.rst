@@ -25,7 +25,7 @@ Installation:
 
     $ git clone https://github.com/anshulc95/exch.git
     $ cd exch
-    $ pip3 install . -r requirements.txt
+    $ pip install --editable . -r requirements.txt  
 
 Usage:
 ------
