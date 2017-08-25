@@ -8,9 +8,9 @@ def fixer(base, target, value, date='latest'):
 
     main_api = 'http://api.fixer.io/{}?'.format(date)
     url = main_api + urlencode({'base':base})
-    json_data = requests.get(url).json()
 
     try:
+        json_data = requests.get(url).json()
         result = round(json_data['rates'][target] * value, 2)
     except requests.exceptions.ConnectionError:
         result = "Connection Error"

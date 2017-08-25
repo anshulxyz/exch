@@ -19,6 +19,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        exch=exch.core:cli
+        exch=exch.cli:cli
     ''',
 )

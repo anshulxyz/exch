@@ -2,7 +2,7 @@
 
 import pytest
 from click.testing import CliRunner
-from exch.core import cli
+from exch.cli import cli
 
 @pytest.fixture
 def runner():
