@@ -80,7 +80,7 @@ Running the tests
 
 ::
 
-    (venc) $ pytest
+    (venv) $ pytest
 
 To generate the test coverage:
 
