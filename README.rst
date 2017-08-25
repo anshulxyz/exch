@@ -73,7 +73,7 @@ Install the testing dependecies:
     /home/username/somedir/exch
     $ virtualenv venv -p python3
     $ source venv/bin/activate
-    (venv) $ pip install --editable . -r requirements.txt -r test-requirements.txt
+    (venv) $ pip install -r requirements.txt -r test-requirements.txt
 
 Running the tests
 ~~~~~~~~~~~~~~~~~
