@@ -25,7 +25,7 @@ Installation:
 
     $ git clone https://github.com/anshulc95/exch.git
     $ cd exch
-    $ pip install -e . -r requirements.txt  
+    $ pip install . -r requirements.txt  
 
 Usage:
 ------
@@ -73,7 +73,7 @@ Install the testing dependecies:
     /home/username/somedir/exch
     $ virtualenv venv -p python3
     $ source venv/bin/activate
-    (venv) $ pip install -r requirements.txt -r test-requirements.txt
+    (venv) $ pip install -e . -r requirements.txt -r test-requirements.txt
 
 Running the tests
 ~~~~~~~~~~~~~~~~~

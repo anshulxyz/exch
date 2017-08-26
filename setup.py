@@ -13,10 +13,13 @@ setup(
     author_email='anshulchauhan@outlook.com',
     license='MIT',
     py_modules=['exch'],
+    tests_require=['pytest'],
     install_requires=[
         'Click>=6.7',
-        'requests==2.18.2',
+        'requests>=2.18.2',
     ],
+    packages=['exch'],
+    include_package_data=True,
     entry_points='''
         [console_scripts]
         exch=exch.cli:cli
