@@ -18,12 +18,12 @@ def test_click_same_currency_code():
 def test_invalid_base_currency_code():
     result = runner().invoke(cli, ['-t', 'USD', '-b', 'AAA'])
     assert result.exit_code == 0
-    assert result.output == "Invalid currency\n"
+    assert result.output == "KeyError: Invalid curreny\n"
 
 def test_invalid_target_currency_code():
     result = runner().invoke(cli, ['-t', 'OOO'])
     assert result.exit_code == 0
-    assert result.output == "Invalid currency\n"
+    assert result.output == "KeyError: Invalid curreny\n"
 
 def test_invalid_amount_value():
     result = runner().invoke(cli, ['-a', 'TT'])

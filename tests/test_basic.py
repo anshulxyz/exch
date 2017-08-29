@@ -21,5 +21,4 @@ def test_fixer_gbp_to_php_value_99():
 
 def test_fixer_invalid_currency():
     """ when invalid currency is passed to fixer.io """
-    assert fixer('USD', 'TTT', 1) == "Invalid currency"
-    assert fixer('HHRR', 'TTT', 1) == "Invalid currency"
+    assert fixer('USD', 'TTT', 1) == "KeyError: Invalid curreny"
