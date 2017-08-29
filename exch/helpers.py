@@ -14,7 +14,7 @@ def fixer(base, target, value, date='latest'):
     except requests.exceptions.ConnectionError:
         result = "Connection Error"
     except KeyError:
-        result = 1.00 if (base == target) else "Invalid currency"
+        result = 1.00 if base == target else "KeyError: Invalid curreny"
 
     return result
 
