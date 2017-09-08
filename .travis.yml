@@ -1,7 +1,7 @@
 language: python
 python:
-  - "3.5"
+  - "3.6"
 # command to install dependencies
-install: "pip install . -r requirements.txt -r test-requirements.txt"
+install: "pip install .[test]"
 # command to run tests
 script: tox
