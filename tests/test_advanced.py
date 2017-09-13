@@ -1,8 +1,12 @@
 """ test the click and terminal behaviour """
 
+import json
 import pytest
 from click.testing import CliRunner
 from exch.cli import cli
+
+# main defaults config file
+FILEPATH = 'data/defaults.json'
 
 @pytest.fixture
 def runner():
@@ -28,3 +32,18 @@ def test_invalid_target_currency_code():
 def test_invalid_amount_value():
     result = runner().invoke(cli, ['-a', 'TT'])
     assert result.exit_code == 2
+
+def test_setting_default_base():
+    result = runner().invoke(cli, ['-b', 'CAD', '-sb'])
+    assert result.exit_code == 0
+    # not testing the output because that depends upon the current exchange rate
+    with open(FILEPATH) as json_file:
+        json_data = json.load(json_file)
+    assert json_data['base']  == 'CAD'
+
+def test_setting_default_target():
+    result = runner().invoke(cli, ['-t', 'GBP', '-st'])
+    assert result.exit_code == 0
+    with open(FILEPATH) as json_file:
+        json_data = json.load(json_file)
+    assert json_data['target']  == 'GBP'

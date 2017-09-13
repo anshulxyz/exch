@@ -4,7 +4,12 @@ import json
 from exch import file_handling
 
 class TestFileHandling:
-    """ tests for reading/writing default currency to JSON file """
+    """
+    tests for reading/writing default currency to JSON file.
+    The tests have to be run in the order they are, because in the first two
+    tests we are setting the default values. In the next two we are getting the
+    default values which were set by the first two sets.
+    """
     new_base = 'USD'
     new_target = 'INR'
     filepath = 'tests/data_for_testing/defaults.json'
