@@ -13,4 +13,5 @@ script:
     - tox
 
 after_success:
+  - coverage report
   - coveralls
