@@ -1,7 +1,17 @@
 language: python
+
 python:
   - "3.6"
-# command to install dependencies
-install: "pip install .[test]"
+
+    # command to install dependencies
+install:
+    - pip install .[test]
+    - pip install codecov
+
 # command to run tests
-script: tox
+script:
+    - tox
+
+after_success:
+  - coverage report
+  - codecov
