@@ -6,7 +6,7 @@ python:
     # command to install dependencies
 install:
     - pip install .[test]
-    - pip install coveralls
+    - pip install codecov
 
 # command to run tests
 script:
@@ -14,4 +14,4 @@ script:
 
 after_success:
   - coverage report
-  - coveralls
+  - codecov
