@@ -1,7 +1,16 @@
 language: python
+
 python:
   - "3.6"
-# command to install dependencies
-install: "pip install .[test]"
+
+    # command to install dependencies
+install:
+    - pip install .[test]
+    - pip install coveralls
+
 # command to run tests
-script: tox
+script:
+    - tox
+
+after_success:
+  - coveralls
