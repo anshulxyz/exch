@@ -8,6 +8,9 @@
 .. image:: https://img.shields.io/pypi/pyversions/exch.svg
     :target: https://github.com/anshulc95/exch
 
+.. image:: https://codecov.io/gh/anshulc95/exch/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/anshulc95/exch
+
 A command-line application built using python to see foreign exchange
 rates and currency conversion.
 
