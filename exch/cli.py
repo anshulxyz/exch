@@ -15,8 +15,6 @@ from exch.file_handling import get_default_base, get_default_target, set_default
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-__version__ = '0.1'
-
 DEFAULT_JSON_FILE = 'data/defaults.json'
 
 @click.command(context_settings=CONTEXT_SETTINGS)
@@ -39,8 +37,6 @@ def cli(base, target, amount, set_base, set_target):
     """
 
     output = fixer(base, target, amount)
-    # TODO: why am I using isinstance ?
-    # why not use a different variable for storing amount
     if isinstance(output, float):
         output = "{} {} = {} {}".format(amount, base, output, target)
 
