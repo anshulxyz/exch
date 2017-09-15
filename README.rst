@@ -45,20 +45,40 @@ Default amount for currency exchange is 1.
     $ exch -b USD -t PHP
     1.0 USD = 51.23 PHP
 
-change default curreny
+Change default curreny
 ~~~~~~~~~~~~~~~~~~~~~~
 ::
 
     $ exch
     1.0 USD = 64.02 INR
+
+Set the currency in use as default with `-sb` for base and `-st` for target.
+
+::
+
     $ exch -b EUR -t NZD -sb
     1.0 EUR = 1.66 NZD
+
+You can see the new set default base in action here.
+
+::
+
     $ exch
     1.0 EUR = 76.63 INR
+
+Similarly, setting new default target.
+
+::
+
     $ exch -b EUR -t CAD -st
     1.0 EUR = 1.46 CAD
     $ exch
     1.0 EUR = 1.46 CAD
+
+Setting both, new base and new target, as defaults. 
+
+::
+
     $ exch -b PHP -t JPY -sb -st
     1.0 PHP = 2.14 JPY
     $ exch
@@ -102,4 +122,4 @@ For contribution, please refer `CONTRIBUTING.md`_
 .. _Click: http://click.pocoo.org/6/
 .. _requests: http://docs.python-requests.org/en/master/
 .. _LICENSE.md: LICENSE.md
-.. _CONTRIBUTING.md: CONTRIBUTING.md
+.. _CONTRIBUTING.md: https://github.com/anshulc95/exch/blob/master/CONTRIBUTING.md
