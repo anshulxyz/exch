@@ -14,7 +14,7 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name="exch",
-    version='0.1.1',
+    version='0.1.2',
     description='A CLI app to see currency exchange rates.',
     long_description=LONG_DESCRIPTION,
 
