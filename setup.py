@@ -4,7 +4,7 @@
 
 from os import path
 from codecs import open
-from setuptools import setup
+from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
@@ -14,7 +14,7 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name="exch",
-    version='0.1.2',
+    version='0.1.2b1',
     description='A CLI app to see currency exchange rates.',
     long_description=LONG_DESCRIPTION,
 
@@ -56,7 +56,8 @@ setup(
         ]
     },
     packages=['exch'],
-    include_package_data=True,
+    package_dir={'exch': 'exch'},
+    package_data={'exch': ['data/*.json']},
     entry_points='''
         [console_scripts]
         exch=exch.cli:cli

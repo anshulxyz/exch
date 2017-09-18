@@ -10,9 +10,9 @@ class TestFileHandling:
     tests we are setting the default values. In the next two we are getting the
     default values which were set by the first two sets.
     """
-    new_base = 'USD'
-    new_target = 'INR'
-    filepath = 'tests/data_for_testing/defaults.json'
+    new_base = 'PHP'
+    new_target = 'CAD'
+    filepath = 'tests/data_for_test_file_handling/defaults.json'
 
     def test_set_default_base(self):
         file_handling.set_default_base(self.new_base, self.filepath)

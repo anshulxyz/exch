@@ -2,11 +2,12 @@
 
 import json
 import pytest
+import pkg_resources
 from click.testing import CliRunner
 from exch.cli import cli
 
-# main defaults config file
-FILEPATH = 'data/defaults.json'
+FILEPATH = pkg_resources.resource_filename('exch', 'data/defaults.json')
+
 
 @pytest.fixture
 def runner():
@@ -39,11 +40,11 @@ def test_setting_default_base():
     # not testing the output because that depends upon the current exchange rate
     with open(FILEPATH) as json_file:
         json_data = json.load(json_file)
-    assert json_data['base']  == 'CAD'
+    assert json_data['base'] == 'CAD'
 
 def test_setting_default_target():
-    result = runner().invoke(cli, ['-t', 'GBP', '-st'])
+    result = runner().invoke(cli, ['-t', 'NZD', '-st'])
     assert result.exit_code == 0
     with open(FILEPATH) as json_file:
         json_data = json.load(json_file)
-    assert json_data['target']  == 'GBP'
+    assert json_data['target'] == 'NZD'

@@ -10,12 +10,13 @@ A CLI application built using python to see currency exchange rates.
 """
 
 import click
+import pkg_resources
 from exch.helpers import fixer
 from exch.file_handling import get_default_base, get_default_target, set_default_base, set_default_target
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-DEFAULT_JSON_FILE = 'data/defaults.json'
+DEFAULT_JSON_FILE = pkg_resources.resource_filename('exch', 'data/defaults.json')
 
 @click.command(context_settings=CONTEXT_SETTINGS)
 @click.option('--base', '-b', default=get_default_base(DEFAULT_JSON_FILE), type=str, show_default=True,

@@ -3,5 +3,4 @@ include LICENSE
 include README.rst
 recursive-include docs *
 
-# data files for exch
-recursive-include data/defaults.json *
+include exch/data/defaults.json

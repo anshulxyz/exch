@@ -10,7 +10,7 @@ def set_default_base(new_base, filepath):
     json_data['base'] = new_base
 
     with open(filepath, 'w') as json_file:
-        json.dump(json_data, json_file,  indent=4)
+        json.dump(json_data, json_file, indent=4)
 
 def set_default_target(new_target, filepath):
     """ set new default arget currency """
