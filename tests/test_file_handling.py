@@ -1,5 +1,6 @@
 """ test the JSON file handling """
 
+import pkg_resources
 import json
 from exch import file_handling
 
@@ -12,7 +13,7 @@ class TestFileHandling:
     """
     new_base = 'PHP'
     new_target = 'CAD'
-    filepath = 'tests/data_for_test_file_handling/defaults.json'
+    filepath = pkg_resources.resource_filename('exch', 'data/defaults.json')
 
     def test_set_default_base(self):
         file_handling.set_default_base(self.new_base, self.filepath)
