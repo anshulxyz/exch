@@ -53,6 +53,6 @@ def test_setting_default_target():
 def test_show_fixer_currencies():
     result = runner().invoke(cli, ['-b', 'NZD', '-t', 'NZD', '-c'])
     assert result.exit_code == 0
-    assert result.output == "1.0 NZD = 1.00 NZD\nEUR,\nAUD,\nBGN,\nBRL,\nCAD,\nCHF,\nCNY,\nCZK,\n\
-DKK,\nGBP,\nHKD,\nHRK,\nHUF,\nIDR,\nILS,\nINR,\nJPY,\nKRW,\nMXN,\nMYR,\nNOK,\
+    assert result.output == "1.0 NZD = 1.00 NZD\nAUD,\nBGN,\nBRL,\nCAD,\nCHF,\nCNY,\nCZK,\n\
+DKK,\nEUR,\nGBP,\nHKD,\nHRK,\nHUF,\nIDR,\nILS,\nINR,\nJPY,\nKRW,\nMXN,\nMYR,\nNOK,\
 \nNZD,\nPHP,\nPLN,\nRON,\nRUB,\nSEK,\nSGD,\nTHB,\nTRY,\nUSD,\nZAR\n"

@@ -69,4 +69,5 @@ def cli(base, target, amount, set_base, set_target, sync, currency):
         currencies.append(json_rates['base'])
         for key in json_rates['rates']:
             currencies.append(key)
+        currencies = sorted(currencies)
         click.echo(',\n'.join(currencies))
