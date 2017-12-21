@@ -1,6 +1,6 @@
 # documentation
 include LICENSE
-include README.rst
+include README.md
 recursive-include docs *
 
 include exch/data/defaults.json

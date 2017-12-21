@@ -21,7 +21,8 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 RATES_FIXER_JSON_FILE = pkg_resources.resource_filename('exch', 'data/fixer_rates.json')
 DEFAULT_JSON_FILE = pkg_resources.resource_filename('exch', 'data/defaults.json')
 
-@click.command(context_settings=CONTEXT_SETTINGS)
+@click.group(invoke_without_command=True)
+@click.pass_context
 @click.option('--base', '-b', default=get_default_base(DEFAULT_JSON_FILE),
               type=str, show_default=True,
               help='Currency you are converting from.')
@@ -33,11 +34,7 @@ DEFAULT_JSON_FILE = pkg_resources.resource_filename('exch', 'data/defaults.json'
               help='Set new default base.')
 @click.option('--set_target', '-st', is_flag=True, default=False,
               help='Set new default target.')
-@click.option('--sync', is_flag=True, default=False,
-              help='Download the latest rates from web.')
-@click.option('--currency', '-c', is_flag=True, default=False,
-              help='List the currencies available.')
-def cli(base, target, amount, set_base, set_target, sync, currency):
+def cli(ctx, base, target, amount, set_base, set_target):
     """
     Get the latetst currency exchange rates from:
 
@@ -45,29 +42,36 @@ def cli(base, target, amount, set_base, set_target, sync, currency):
         - fixer.io
     """
 
-    if sync:
-        if fixer_sync(RATES_FIXER_JSON_FILE) in range(200, 300):
-            click.echo("New rates have been saved.")
+    if ctx.invoked_subcommand is None:
+        output = fixer(base, target, amount, RATES_FIXER_JSON_FILE)
+        if isinstance(output, float):
+            # 2:.2f for two decimal values, manually specified
+            output = "{0} {1} = {2:.2f} {3}".format(amount, base, output, target)
 
-    output = fixer(base, target, amount, RATES_FIXER_JSON_FILE)
-    if isinstance(output, float):
-        # 2:.2f for two decimal values, manually specified
-        output = "{0} {1} = {2:.2f} {3}".format(amount, base, output, target)
+        if set_base:
+            set_default_base(base, DEFAULT_JSON_FILE)
 
-    if set_base:
-        set_default_base(base, DEFAULT_JSON_FILE)
+        if set_target:
+            set_default_target(target, DEFAULT_JSON_FILE)
 
-    if set_target:
-        set_default_target(target, DEFAULT_JSON_FILE)
+        click.echo(output)
 
-    click.echo(output)
+# subcommands
 
-    if currency:
-        with open(RATES_FIXER_JSON_FILE) as rates_json_file:
-            json_rates = json.load(rates_json_file)
-        currencies = []
-        currencies.append(json_rates['base'])
-        for key in json_rates['rates']:
-            currencies.append(key)
-        currencies = sorted(currencies)
-        click.echo(',\n'.join(currencies))
+@cli.command()
+def currencies():
+    """ prints the list of currencies available """
+    with open(RATES_FIXER_JSON_FILE) as rates_json_file:
+        json_rates = json.load(rates_json_file)
+    list_of_currencies = []
+    list_of_currencies.append(json_rates['base'])
+    for key in json_rates['rates']:
+        list_of_currencies.append(key)
+    list_of_currencies.sort()
+    click.echo(', '.join(list_of_currencies))
+
+@cli.command()
+def sync():
+    """ download the latest rates """
+    if fixer_sync(RATES_FIXER_JSON_FILE) in range(200, 300):
+        click.echo("New rates have been saved.")

@@ -51,11 +51,3 @@ def fixer_sync(file_path):
             json_file.write(response.content)
 
     return response.status_code
-
-# function to list currencies present
-# use the above sync method to down the file if not present
-# show the date of the file present
-
-#def google_finance_converter(base, target, value):
-#    """ parse the Google Finance Converter html to extract the value"""
-#    pass

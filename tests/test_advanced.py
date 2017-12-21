@@ -51,8 +51,8 @@ def test_setting_default_target():
     assert json_data['target'] == 'NZD'
 
 def test_show_fixer_currencies():
-    result = runner().invoke(cli, ['-b', 'NZD', '-t', 'NZD', '-c'])
+    result = runner().invoke(cli, ['currencies'])
     assert result.exit_code == 0
-    assert result.output == "1.0 NZD = 1.00 NZD\nAUD,\nBGN,\nBRL,\nCAD,\nCHF,\nCNY,\nCZK,\n\
-DKK,\nEUR,\nGBP,\nHKD,\nHRK,\nHUF,\nIDR,\nILS,\nINR,\nJPY,\nKRW,\nMXN,\nMYR,\nNOK,\
-\nNZD,\nPHP,\nPLN,\nRON,\nRUB,\nSEK,\nSGD,\nTHB,\nTRY,\nUSD,\nZAR\n"
+    assert result.output == "AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, EUR, GBP, HKD,\
+ HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK,\
+ SGD, THB, TRY, USD, ZAR\n"
