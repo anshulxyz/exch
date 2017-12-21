@@ -9,12 +9,12 @@ from setuptools import setup, find_packages
 HERE = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
     LONG_DESCRIPTION = f.read()
 
 setup(
     name="exch",
-    version='0.2',
+    version='0.3',
     description='A CLI app to see currency exchange rates.',
     long_description=LONG_DESCRIPTION,
 

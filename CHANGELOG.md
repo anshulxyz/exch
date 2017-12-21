@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0]
+## Added
+- offline support
+- syncing function
+- function to list the currencies available
+
+## Changed
+- README, better usage examples
+- help message, now it shows the current default currencies
+
 ## [0.1.2] 2017-09-16
 ###Added
 - default currency json file
