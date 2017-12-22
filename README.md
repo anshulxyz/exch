@@ -27,6 +27,10 @@ $ exch --amount 199 --base EUR --target JPY
 199.0 EUR = 25613.29 JPY
 ```
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/153885.png)](https://asciinema.org/a/153885)
+
 
 ## Commands
 |Short|Long|Description|Example|
